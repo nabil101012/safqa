@@ -1,0 +1,737 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="ERP.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Meta -->
+    <meta name="description" content="SAFQA-TECH Dashboard" />
+    <meta name="author" content="X-World" />
+    <link rel="canonical" href="https://www.xworld.com/" />
+    <meta property="og:url" content="https://www.xworld.com" />
+    <meta property="og:title" content="SAFQA-TECH Dashboard" />
+    <meta property="og:description" content="SAFQA-TECH Dashboard" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:site_name" content="SAFQA-TECH ERP" />
+    <link rel="shortcut icon" href="../assets/images/SAFQA-TECH.png" />
+    <!-- Title -->
+    <title>Safqa - ERP Dashboard</title>
+    <!-- ************************* Common Css Files ************************* -->
+    <!-- Font Awesome css -->
+    <link rel="stylesheet" href="../assets/css/all.min.css" />
+    <!-- Animated css -->
+    <link rel="stylesheet" href="../assets/css/animate.css" />
+    <!-- Bootstrap font icons css -->
+    <link rel="stylesheet" href="../assets/fonts/bootstrap/bootstrap-icons.css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="../assets/css/main.min.css" />
+    <!-- ************************* Vendor Css Files ************************* -->
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="../assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+    <!-- ************************* Libs Css Files ************************* -->
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="../assets/libs/toastr/toastr.min.css" />
+    <!-- ************************* Custom Style Css Files ************************* -->
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="../assets/css/customStyle.css" />
+
+    <style>
+    /* Mobile Sidebar & Toggle Enhancements */
+    @media (max-width: 992px) {
+        .sidebar-wrapper {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1050;
+        }
+        .sidebar-wrapper.mobile-show {
+            transform: translateX(0);
+        }
+        .main-container {
+            margin-right: 0 !important;
+        }
+    }
+    
+    /* Smooth scrolling for sidebar menu */
+    .sidebarMenuScroll {
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    .sidebarMenuScroll::-webkit-scrollbar {
+        width: 5px;
+    }
+    .sidebarMenuScroll::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+</style>
+</head>
+<!-- body start -->
+<body>
+    <%--<!-- go top btn -->
+    <button id="btnUp" class="btn text-white rounded-circle">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>--%>
+    <!-- print js -->
+    <form id="Form1" runat="server">
+    <script type="text/javascript" src="../assets/libs/printjs/print.min.js"></script>
+   <div id="loading-layer" class="loading-layer">
+  <div class="preloader">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 280 250" preserveAspectRatio="xMidYMid" style="display: block; shape-rendering: auto; background: transparent;" width="280" height="250">
+        <style type="text/css">
+            .ld-text text { text-anchor: middle; dominant-baseline: middle; font-size: 70px; opacity: 0; user-select: none; pointer-events: none; } 
+        </style>                            
+        <g style="transform-origin:140px 125px;transform:scale(1)" class="ld-text">
+            <g transform="translate(140,125)">
+                <!-- حرف S - لون برتقالي -->
+                <g class="path" style="opacity: 1; animation: 1s linear -0.565714s infinite normal forwards running animate-safqa;">
+                    <path d="M25 10C25 4 20 -2 12 -2C4 -2 0 3 0 10C0 17 8 20 18 23C28 26 35 30 35 39C35 47 28 52 16 52C6 52 0 46 -2 38L6 35C8 40 12 44 16 44C22 44 26 41 26 37C26 31 20 28 11 25C2 22 -4 18 -4 9C-4 1 3 -5 12 -5C20 -5 24 0 26 6Z" style="fill: rgb(249, 115, 22);" transform="translate(-80,-20)"></path>
+                </g>
+                <!-- حرف a الأولى - لون أزرق -->
+                <g class="path" style="opacity: 1; animation: 1s linear -0.471429s infinite normal forwards running animate-safqa;">
+                    <path d="M15 0C23 0 28 6 28 15V35H21V29C19 33 15 36 10 36C3 36 -1 31 -1 24C-1 16 5 12 17 12H21V10C21 5 18 2 11 2C6 2 2 4 0 7L-5 3C2 -1 8 -3 15 -3M17 18H14C8 18 6 20 6 24C6 28 9 30 14 30C19 30 21 27 21 22V18Z" style="fill: rgb(22, 89, 139);" transform="translate(-40,-20)"></path>
+                </g>
+                <!-- حرف f الصحيح - لون أخضر -->
+                <g class="path" style="opacity: 1; animation: 1s linear -0.377143s infinite normal forwards running animate-safqa;">
+                    <path d="M16 -18C12 -18 9 -15 9 -10V-2H5V3H9V28C9 32 12 35 17 35H20V30H17C15 30 14 29 14 27V3H21V-2H14V-10C14 -12 15 -13 17 -13H20V-18Z" style="fill: rgb(16, 185, 129);" transform="translate(-10,-20)"></path>
+                </g>
+                <!-- حرف q - لون سماوي/تركواز -->
+                <g class="path" style="opacity: 1; animation: 1s linear -0.282857s infinite normal forwards running animate-safqa;">
+                    <path d="M15 0C23 0 29 6 29 17C29 28 23 35 15 35C7 35 1 28 1 17C1 6 7 0 15 0ZM15 5C10 5 7 10 7 17C7 24 10 30 15 30C20 30 23 24 23 17C23 10 20 5 15 5ZM27 33V50H21V33Z" style="fill: rgb(6, 182, 212);" transform="translate(20,-20)"></path>
+                </g>
+                <!-- حرف a الثانية - لون أرجواني -->
+                <g class="path" style="opacity: 1; animation: 1s linear -0.188571s infinite normal forwards running animate-safqa;">
+                    <path d="M15 0C23 0 28 6 28 15V35H21V29C19 33 15 36 10 36C3 36 -1 31 -1 24C-1 16 5 12 17 12H21V10C21 5 18 2 11 2C6 2 2 4 0 7L-5 3C2 -1 8 -3 15 -3M17 18H14C8 18 6 20 6 24C6 28 9 30 14 30C19 30 21 27 21 22V18Z" style="fill: rgb(139, 92, 246);" transform="translate(60,-20)"></path>
+                </g>
+            </g>
+            <text dy="0.35em" fill="#16598b" font-family="'Segoe UI', Tahoma, sans-serif" font-weight="bold" font-size="70" text-anchor="middle">Safqa</text>
+        </g>
+    </svg>
+    <style type="text/css">
+        @keyframes animate-safqa { 
+            0% { transform: scale(0.91); opacity: 1; }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(0.91); }
+        }
+        .bg-warning {
+            background-color: #f97316 !important;
+            color: #ffffff !important;
+        }
+        .btn-outline-warning {
+            color: #f97316 !important;
+            border-color: #f97316 !important;
+            background-color: transparent !important;
+        }
+        .btn-outline-warning:hover {
+            color: #ffffff !important;
+            background-color: #f97316 !important;
+            border-color: #f97316 !important;
+        }
+    </style>
+</div>
+     
+</div>
+    <!-- Page wrapper start -->
+    <div class="page-wrapper">
+        <!-- Sidebar wrapper start -->
+       <!-- Sidebar wrapper start -->
+<nav class="sidebar-wrapper overflow-hidden">
+
+    <!-- Sidebar brand starts -->
+    <div class="sidebar-brand p-3 text-center border-bottom border-light border-opacity-10">
+        <a href="dashboard.aspx" class="logo text-decoration-none">
+            <img src="../assets/images/SAFQA-TECH.png" alt="Safqa - ERP Dashboard" style="max-height: 40px;" />
+        </a>
+    </div>
+    <!-- Sidebar brand ends -->
+
+    <!-- Sidebar menu starts -->
+    <div class="sidebar-menu">
+        <div class="sidebarMenuScroll px-2 py-3">
+            <ul class="list-unstyled m-0">
+                
+                <!-- Dashboard / Home Link -->
+                <li class="mb-2">
+                    <a href="dashboard.aspx" class="d-flex align-items: center text-decoration-none p-2 rounded hover-bg">
+                       <i class="bi bi-house-door fs-5 me-2 text-primary"></i>
+                        <span class="menu-text fw-semibold">لوحة التحكم</span>
+                    </a>
+                </li>
+
+                <!-- المقايضات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li1000">
+                    <a href="javascript:void(0);" class="d-flex align-items-center text-decoration-none p-2 rounded">
+                        <i class="bi bi-window-split fs-5 me-2 text-info"></i>
+                        <span class="menu-text">المقايضات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li1001" class="py-1"><a href="items_exchange" class="text-decoration-none">مقايضه</a></li>
+                            <li runat="server" id="li1002" class="py-1"><a href="exchange_approve" class="text-decoration-none">المقايضات المقدمه</a></li>
+                            <li runat="server" id="li1003" class="py-1"><a href="item_exchange_prices" class="text-decoration-none">بورصه أسعار المنتجات</a></li>
+                            <li runat="server" id="li1004" class="py-1"><a href="update_items_price" class="text-decoration-none">تحديث أسعار البورصه</a></li>
+                            <li runat="server" id="li1005" class="py-1"><a href="buy_company_approve" class="text-decoration-none">المقايضات الحاليه</a></li>
+                            <li runat="server" id="li1006" class="py-1"><a href="sale_company_approve" class="text-decoration-none">متابعه المقايضات</a></li>
+                            <li runat="server" id="li1007" class="py-1"><a href="exchange_report" class="text-decoration-none">تقرير المقايضات</a></li>
+                            <li runat="server" id="li1008" class="py-1"><a href="item_prices_report" class="text-decoration-none">تقرير أسعار الأصناف</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- الأعدادات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li1200">
+                    <a href="javascript:void(0);" class="d-flex align-items-center text-decoration-none p-2 rounded">
+                        <i class="bi bi-sliders fs-5 me-2 text-warning"></i>
+                        <span class="menu-text">الأعدادات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li1201" class="py-1"><a href="companys" class="text-decoration-none">بيانات الشركات</a></li>
+                            <li runat="server" id="li1104" class="py-1"><a href="add_attachment_types.aspx" class="text-decoration-none">مرفقات الشركات</a></li>
+                            <li runat="server" id="li1202" class="py-1"><a href="company_approve" class="text-decoration-none">أعتماد الشركات</a></li>
+                            <li runat="server" id="li112" class="py-1"><a href="add_category" class="text-decoration-none">أضافه الانواع</a></li>
+                            <li runat="server" id="li1203" class="py-1"><a href="add_item" class="text-decoration-none">أضافه الأصناف</a></li>
+                            <li runat="server" id="li113" class="py-1"><a href="add_category_edit" class="text-decoration-none">تعديل الانواع</a></li>
+                            <li runat="server" id="li1204" class="py-1"><a href="company_profile" class="text-decoration-none">بيانات الشركه</a></li>
+                            <li runat="server" id="li1205" class="py-1"><a href="company_report" class="text-decoration-none">تقرير بيانات الشركات</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- المبيعات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li200">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-cart-check fs-5 me-2 text-success"></i>
+                        <span class="menu-text">المبيعات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li206" class="py-1"><a href="shift" class="text-decoration-none">اليوميات</a></li>
+                            <li runat="server" id="li201" class="py-1"><a href="sales" class="text-decoration-none">المبيعات</a></li>
+                            <li runat="server" id="li202" class="py-1"><a href="add_client" class="text-decoration-none">أضافه عميل</a></li>
+                            <li runat="server" id="li203" class="py-1"><a href="item_search" class="text-decoration-none">أستعلام عن صنف</a></li>
+                            <li runat="server" id="li204" class="py-1"><a href="reports_sales" class="text-decoration-none">تقرير المبيعات</a></li>
+                            <li runat="server" id="li205" class="py-1"><a href="client_account" class="text-decoration-none">تقرير العملاء</a></li>
+                            <li runat="server" id="li207" class="py-1"><a href="sarf_approve" class="text-decoration-none">أعتماد أضافه الاصناف</a></li>
+                            <li runat="server" id="li208" class="py-1"><a href="m_barcode" class="text-decoration-none">طباعه باركود</a></li>
+                            <li runat="server" id="li209" class="py-1"><a href="order_evaluation" class="text-decoration-none">خدمه ما بعد البيع</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- مخازن -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li110">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-box-seam fs-5 me-2 text-danger"></i>
+                        <span class="menu-text">مخازن</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li111" class="py-1"><a href="m_general_store" class="text-decoration-none">أضافه مخازن</a></li>
+                           
+                            
+                            <li runat="server" id="li114" class="py-1"><a href="add_item" class="text-decoration-none">أضافه الاصناف</a></li>
+                            <li runat="server" id="li115" class="py-1"><a href="add_item_edit" class="text-decoration-none">تعديل الاصناف</a></li>
+                            <li runat="server" id="li116" class="py-1"><a href="item_add_store" class="text-decoration-none">أذن أضافه</a></li>
+                            <li runat="server" id="li117" class="py-1"><a href="m_Sarf_new" class="text-decoration-none">أذن صرف</a></li>
+                            <li runat="server" id="li118" class="py-1"><a href="m_3ahda" class="text-decoration-none">تسليم عهده</a></li>
+                            <li runat="server" id="li119" class="py-1"><a href="m_tawreed_report" class="text-decoration-none">تقرير الأضافه</a></li>
+                            <li runat="server" id="li1110" class="py-1"><a href="m_sarf_report_new" class="text-decoration-none">تقرير الصرف</a></li>
+                            <li runat="server" id="li1111" class="py-1"><a href="m_report" class="text-decoration-none">تقرير الجرد</a></li>
+                            <li runat="server" id="li1112" class="py-1"><a href="m_company_supplier" class="text-decoration-none">اضافة شركة</a></li>
+                            <li runat="server" id="li1113" class="py-1"><a href="m_category_osoul" class="text-decoration-none">اضافة انواع أصول</a></li>
+                            <li runat="server" id="li1114" class="py-1"><a href="m_item_osoul" class="text-decoration-none">اضافة اصول</a></li>
+                            <li runat="server" id="li1115" class="py-1"><a href="m_item_ahlak" class="text-decoration-none">أهلاك اصول</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- الاداره الماليه -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li120">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-wallet2 fs-5 me-2 text-warning"></i>
+                        <span class="menu-text">الاداره الماليه</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li121" class="py-1"><a href="other_payment" class="text-decoration-none">تحصيل</a></li>
+                            <li runat="server" id="li122" class="py-1"><a href="money_out" class="text-decoration-none">مدفوعات</a></li>
+                            <li runat="server" id="li123" class="py-1"><a href="money_3ohda" class="text-decoration-none">تسوية عهد</a></li>
+                            <li runat="server" id="li124" class="py-1"><a href="m_mortag3" class="text-decoration-none">مرتجع موردين</a></li>
+                            <li runat="server" id="li125" class="py-1"><a href="m_mortag3_clients" class="text-decoration-none">مرتجعات العملاء</a></li>
+                            <li runat="server" id="li126" class="py-1"><a href="dayon" class="text-decoration-none">تسجيل ديون</a></li>
+                            <li runat="server" id="li127" class="py-1"><a href="daily_report" class="text-decoration-none">قيد يومية</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- الحسابات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li130">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-journal-text fs-5 me-2 text-primary"></i>
+                        <span class="menu-text">الحسابات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li131" class="py-1"><a href="update_check" class="text-decoration-none">تحصيل شيكات</a></li>
+                            <li runat="server" id="li132" class="py-1"><a href="job_orders.aspx" class="text-decoration-none">اضافه بنود مصروفات</a></li>
+                            <li runat="server" id="li133" class="py-1"><a href="job_orders.aspx" class="text-decoration-none">اضافه بنود ايرادات</a></li>
+                            <li runat="server" id="li134" class="py-1"><a href="job_orders.aspx" class="text-decoration-none">اضافه جهة</a></li>
+                            <li runat="server" id="li135" class="py-1"><a href="job_orders.aspx" class="text-decoration-none">تسوية عهدة</a></li>
+                            <li runat="server" id="li136" class="py-1"><a href="report_job_order" class="text-decoration-none">تعديل المصروفات</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- تقارير الحسابات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li140">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-file-earmark-bar-graph fs-5 me-2 text-secondary"></i>
+                        <span class="menu-text">تقارير الحسابات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li11111" class="py-1"><a href="reports_sales" class="text-decoration-none">تقرير مبيعات</a></li>
+                            <li runat="server" id="li141" class="py-1"><a href="packages" class="text-decoration-none">كشف حساب</a></li>
+                            <li runat="server" id="li142" class="py-1"><a href="daily_report2" class="text-decoration-none">حركة الخزنة</a></li>
+                            <li runat="server" id="li143" class="py-1"><a href="invoice_report2" class="text-decoration-none">تقرير التحصيل</a></li>
+                            <li runat="server" id="li144" class="py-1"><a href="reports_money_out" class="text-decoration-none">تقرير مدفوعات</a></li>
+                            <li runat="server" id="li145" class="py-1"><a href="m_mortag3_report_clients" class="text-decoration-none">تقرير مرتجعات العملاء</a></li>
+                            <li runat="server" id="li146" class="py-1"><a href="m_mortag3_report" class="text-decoration-none">تقرير مرتجعات الموردين</a></li>
+                            <li runat="server" id="li147" class="py-1"><a href="m_supplier" class="text-decoration-none">تقرير موردين</a></li>
+                            <li runat="server" id="li148" class="py-1"><a href="m_bank" class="text-decoration-none">تقرير بنوك</a></li>
+                            <li runat="server" id="li149" class="py-1"><a href="reports_all" class="text-decoration-none">صورة من الاذون</a></li>
+                            <li runat="server" id="li1141" class="py-1"><a href="reports_money_out_pictures" class="text-decoration-none">صورة من مستندات الصرف</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- شئون أداريه -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li150">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-people fs-5 me-2 text-info"></i>
+                        <span class="menu-text">شئون أداريه</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li151" class="py-1"><a href="s_department_region" class="text-decoration-none">اضافة ادارات رئيسيه</a></li>
+                            <li runat="server" id="li152" class="py-1"><a href="s_department" class="text-decoration-none">بيانات الادارات</a></li>
+                            <li runat="server" id="li153" class="py-1"><a href="s_job" class="text-decoration-none">بيانات الوظائف</a></li>
+                            <li runat="server" id="li154" class="py-1"><a href="s_employees" class="text-decoration-none">بيانات الموظفين</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- تقارير شئون أداريه -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li160">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-file-earmark-person fs-5 me-2 text-success"></i>
+                        <span class="menu-text">تقارير شئون أداريه</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li161" class="py-1"><a href="report_employee_work_info" class="text-decoration-none">تقرير بيانات الموظفين</a></li>
+                            <li runat="server" id="li162" class="py-1"><a href="employees_transport" class="text-decoration-none">تقرير أجازات الموظفين</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- شئون عاملين -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li170">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-person-badge fs-5 me-2 text-warning"></i>
+                        <span class="menu-text">شئون عاملين</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li171" class="py-1"><a href="s_extra" class="text-decoration-none">أضافة حوافز و بدلات</a></li>
+                            <li runat="server" id="li172" class="py-1"><a href="s_reduce" class="text-decoration-none">اضافة جزائات للموظف</a></li>
+                            <li runat="server" id="li173" class="py-1"><a href="s_reduce_basic" class="text-decoration-none">أضافة خصومات</a></li>
+                            <li runat="server" id="li174" class="py-1"><a href="s_reduce_personal" class="text-decoration-none">أضافة خصومات شخصية</a></li>
+                            <li runat="server" id="li175" class="py-1"><a href="s_job_extra" class="text-decoration-none">أضافة بدلات للوظيفة</a></li>
+                            <li runat="server" id="li176" class="py-1"><a href="s_tax" class="text-decoration-none">تعديل ضرائب و تأمينات</a></li>
+                            <li runat="server" id="li177" class="py-1"><a href="s_3yab" class="text-decoration-none">أدخال غياب العاملين</a></li>
+                            <li runat="server" id="li178" class="py-1"><a href="s_employee_all" class="text-decoration-none">تعديل راتب موظف</a></li>
+                            <li runat="server" id="li179" class="py-1"><a href="s_finger" class="text-decoration-none">تسجيل المؤثرات</a></li>
+                            <li runat="server" id="li1710" class="py-1"><a href="begin_month" class="text-decoration-none">حساب المرتبات</a></li>
+                            <li runat="server" id="li1711" class="py-1"><a href="s_employee_vacation" class="text-decoration-none">اجازات الموظفين</a></li>
+                            <li runat="server" id="li1712" class="py-1"><a href="data_transfer" class="text-decoration-none">سحب البصمة</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- تقارير شئون -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li180">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-clipboard-data fs-5 me-2 text-danger"></i>
+                        <span class="menu-text">تقارير شئون</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li181" class="py-1"><a href="approval.aspx" class="text-decoration-none">مفردات مرتب</a></li>
+                            <li runat="server" id="li182" class="py-1"><a href="approval.aspx" class="text-decoration-none">كشف المرتبات</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- تعديل بيانات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li190">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-pencil-square fs-5 me-2 text-primary"></i>
+                        <span class="menu-text">تعديل بيانات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li191" class="py-1"><a href="approval.aspx" class="text-decoration-none">تعديل أيرادات</a></li>
+                            <li runat="server" id="li192" class="py-1"><a href="approval.aspx" class="text-decoration-none">تعديل مصروفات</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- الإعدادات -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li1100">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-gear fs-5 me-2 text-secondary"></i>
+                        <span class="menu-text">الإعدادات</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li1101" class="py-1"><a href="add_paid_types.aspx" class="text-decoration-none">انواع المدفوعات</a></li>
+                            <li runat="server" id="li1102" class="py-1"><a href="add_paid_sub_types.aspx" class="text-decoration-none">انواع مفصله للمدفوعات</a></li>
+                            <li runat="server" id="li1103" class="py-1"><a href="approval.aspx" class="text-decoration-none">الموافقات</a></li>
+                            
+                            <li runat="server" id="li1105" class="py-1"><a href="add_bank.aspx" class="text-decoration-none">البنوك</a></li>
+                            <li runat="server" id="li1106" class="py-1"><a href="bank_account" class="text-decoration-none">حسابات البنوك</a></li>
+                            <li runat="server" id="li1107" class="py-1"><a href="add_branch.aspx" class="text-decoration-none">الفروع</a></li>
+                            <li runat="server" id="li1108" class="py-1"><a href="add_city.aspx" class="text-decoration-none">المدن</a></li>
+                            <li runat="server" id="li1109" class="py-1"><a href="add_client_atachment_types.aspx" class="text-decoration-none">مرفقات العملاء</a></li>
+                            <li runat="server" id="li11010" class="py-1"><a href="add_country.aspx" class="text-decoration-none">البلاد</a></li>
+                            <li runat="server" id="li11011" class="py-1"><a href="add_department.aspx" class="text-decoration-none">الادارات</a></li>
+                            <li runat="server" id="li11012" class="py-1"><a href="add_employee_attachment_types.aspx" class="text-decoration-none">مرفقات العاملين</a></li>
+                            <li runat="server" id="li11013" class="py-1"><a href="add_health_care_company.aspx" class="text-decoration-none">شركات الرعاية الصحية</a></li>
+                            <li runat="server" id="li11014" class="py-1"><a href="add_job.aspx" class="text-decoration-none">الوظائف</a></li>
+                            <li runat="server" id="pi11015" class="py-1"><a href="add_operation_types.aspx" class="text-decoration-none">الاجراءات</a></li>
+                            <li runat="server" id="li11016" class="py-1"><a href="add_project.aspx" class="text-decoration-none">المشاريع</a></li>
+                            <li runat="server" id="li11017" class="py-1"><a href="add_service_type.aspx" class="text-decoration-none">الخدمات</a></li>
+                            <li runat="server" id="li11018" class="py-1"><a href="add_system_types.aspx" class="text-decoration-none">الأنظمة</a></li>
+                            <li runat="server" id="li11019" class="py-1"><a href="add_zone.aspx" class="text-decoration-none">الأحياء</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- اعدادات النظام -->
+                <li class="sidebar-dropdown mb-2" runat="server" id="li11000">
+                    <a href="javascript:void(0);" class="d-flex align-items: center text-decoration-none p-2 rounded">
+                        <i class="bi bi-shield-lock fs-5 me-2 text-info"></i>
+                        <span class="menu-text">اعدادات النظام</span>
+                        <i class="bi bi-chevron-down ms-auto small"></i>
+                    </a>
+                    <div class="sidebar-submenu ps-3 mt-1">
+                        <ul class="list-unstyled m-0">
+                            <li runat="server" id="li11001" class="py-1"><a href="user_information" class="text-decoration-none">المستخدمين</a></li>
+                            <li runat="server" id="li11002" class="py-1"><a href="user_permission" class="text-decoration-none">الصلاحيات</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- Sidebar menu ends -->
+
+</nav>
+<!-- Sidebar wrapper end -->
+
+        <!-- Sidebar wrapper end -->
+        <!-- ************************* Main container start ************************** -->
+        <div class="main-container">
+            <!-- Page header starts -->
+            <div class="page-header">
+                <div class="toggle-sidebar" id="toggle-sidebar">
+                    <i class="bi bi-list"></i>
+                </div>
+                <!-- Header actions ccontainer start -->
+                <div class="header-actions-container">
+                    <!-- Search container start -->
+                    <div class="search-container">
+                        <!-- Search input group start -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="بحث...">
+                            <button class="btn" type="button">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                        <!-- Search input group end -->
+                    </div>
+                    <!-- Search container end -->
+                    <!-- Leads start -->
+                    <a href="#" class="leads d-none d-xl-flex">
+                        <div class="lead-details">
+                            لديك <span class="count">0 </span>أشعارات جديده
+                        </div>
+                        <span class="lead-icon"><i class="bi bi-bell-fill animate__animated animate__swing animate__infinite infinite"></i><b class="dot animate__animated animate__heartBeat animate__infinite"></b></span></a>
+                    <!-- Leads end -->
+                    <!-- Header actions start -->
+                    <ul class="header-actions">
+                        <%--<li class="dropdown d-none d-md-block">
+								<a href="#" id="countries" data-toggle="dropdown" aria-haspopup="true">
+									<img src="assets/images/flags/1x1/br.svg" class="flag-img" alt="Admin Panels" />
+								</a>
+								<div class="dropdown-menu dropdown-menu-end mini" aria-labelledby="countries">
+									<div class="country-container">
+										<a href="dashboard.aspx">
+											<img src="../assets/images/flags/1x1/us.png" alt="Clean Admin Dashboards" />
+										</a>
+										<a href="dashboard.aspx">
+											<img src="../assets/images/flags/1x1/in.png" alt="Google Dashboards" />
+										</a>
+										<a href="dashboard.aspx">
+											<img src="../assets/images/flags/1x1/gb.png" alt="AI Admin Dashboards" />
+										</a>
+										<a href="dashboard.aspx">
+											<img src="../assets/images/flags/1x1/tr.png" alt="Modern Dashboards" />
+										</a>
+										<a href="dashboard.aspx">
+											<img src="../assets/images/flags/1x1/ca.png" alt="Best Admin Dashboards" />
+										</a>
+									</div>
+								</div>
+							</li>--%>
+
+                            <li class="dropdown">
+    <a href="#" id="userSettings" class="user-settings dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="user-name d-none d-md-block fw-bold text-dark" runat="server" id="displayUserName">User</span> 
+        <span class="avatar">
+            <img src="../assets/images/userx.png" alt="User Avatar" width="35" height="35" class="rounded-circle">
+            <span class="status online"></span>
+        </span>
+    </a>
+  <div class="dropdown-menu dropdown-menu-end shadow text-end" aria-labelledby="userSettings" dir="rtl">
+    <div class="header-profile-actions p-2">
+        <!-- تفتح المودال الموحد -->
+        <a class="dropdown-item py-2 rounded d-flex align-items-center justify-content-end gap-2" href="#" data-bs-toggle="modal" data-bs-target="#unifiedSettingsModal">
+            <span>الملف الشخصي</span> <i class="bi bi-person-gear fs-6"></i>
+        </a>
+        <div class="dropdown-divider"></div>
+        <asp:LinkButton ID="btnLogout" runat="server" CssClass="dropdown-item py-2 text-danger rounded d-flex align-items-center justify-content-end gap-2" OnClick="btnLogout_Click">
+            <span>تسجيل الخروج</span> <i class="bi bi-box-arrow-right fs-6"></i>
+        </asp:LinkButton>
+    </div>
+</div>
+</li>
+                
+                    </ul>
+                    <!-- Header actions end -->
+                </div>
+                <!-- Header actions ccontainer end -->
+            </div>
+            <!-- Page header ends -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+            <!-- Content wrapper scroll start -->
+            <%--<div class="content-wrapper-scroll"> Stop to can run Modals--%>
+            <div>
+                <!-- Content wrapper start -->
+                <div class="content-wrapper">
+                    <asp:ContentPlaceHolder ID="head2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- Content wrapper end -->
+            </div>
+            <!-- Content wrapper scroll end -->
+            <!-- App Footer start -->
+            <div class="app-footer">
+                <span>2026 &copy; Copyright Core Codes </span>
+            </div>
+            <!-- App footer end -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+
+
+    <!-- ************************* Main container end ************************** -->
+    <!-- ************************* Required JavaScript Files ************************** -->
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="../assets/js/moment.js"></script>
+    <script type="text/javascript" src="../assets/js/all.min.js"></script>
+    <!-- ************************* Vendor Js Files ************************** -->
+    <!-- Overlay Scroll JS -->
+    <script type="text/javascript" src="../assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script type="text/javascript" src="../assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+    <!-- Vector Maps 
+		<script type="text/javascript" src="../assets/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js"></script>
+		<script type="text/javascript" src="../assets/vendor/jvectormap/world-mill-en.js"></script>
+		<script type="text/javascript" src="../assets/vendor/jvectormap/gdp-data.js"></script>
+		<script type="text/javascript" src="../assets/vendor/jvectormap/custom/world-map-markers.js"></script>-->
+    <!-- Circleful -->
+    <script type="text/javascript" src="../assets/vendor/circliful/circliful.min.js"></script>
+    <script type="text/javascript" src="../assets/vendor/circliful/circliful.custom.js"></script>
+    <!-- ************************* Libs Js Files ************************** -->
+    <!-- Toastr JS -->
+    <script type="text/javascript" src="../assets/libs/toastr/toastr.min.js"></script>
+    <!-- ************************* Another Js Files ************************** -->
+    <!-- Main Js Required -->
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+    <!-- Custom Js -->
+    <script type="text/javascript" src="../assets/js/customJs.js"></script>
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("toggle-sidebar");
+        const sidebar = document.querySelector(".sidebar-wrapper");
+
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener("click", function () {
+                sidebar.classList.toggle("mobile-show");
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener("click", function (event) {
+                if (window.innerWidth <= 992) {
+                    if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        sidebar.classList.remove("mobile-show");
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+   
+    <!-- نافذة الملف الشخصي (Profile Modal) -->
+<!-- نافذة الملف الشخصي والإعدادات الموحدة (Unified Profile & Settings Modal) -->
+<div class="modal fade" id="unifiedSettingsModal" tabindex="-1" aria-labelledby="unifiedSettingsModalLabel" aria-hidden="true" dir="rtl">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold" id="unifiedSettingsModalLabel">
+                    <i class="bi bi-person-badge-fill me-2"></i> الملف الشخصي وإعدادات الحساب
+                </h5>
+                <button type="button" class="btn-close btn-close-white ms-0 me-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body p-4 text-end">
+                <!-- رأس النافذة: الصورة والاسم الأساسي -->
+                <div class="text-center mb-4 pb-3 border-bottom">
+                    <img src="../assets/images/userx.png" class="rounded-circle shadow-sm mb-2 border border-3 border-primary p-1" width="90" height="90" alt="Profile">
+                    <h4 class="fw-bold text-dark mb-1" runat="server" id="modalHeaderUserName">اسم المستخدم</h4>
+                    <span class="badge bg-light text-primary border px-3 py-1 rounded-pill">حساب مستخدم نشط</span>
+                </div>
+
+                <!-- التبويبات الداخلية (البيانات الشخصية | تغيير كلمة المرور | الصلاحيات) -->
+                <ul class="nav nav-pills mb-3 justify-content-center" id="unifiedTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold px-3" id="info-tab" data-bs-toggle="pill" data-bs-target="#infoContent" type="button" role="tab">بيانات الحساب</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold px-3" id="password-tab" data-bs-toggle="pill" data-bs-target="#passwordContent" type="button" role="tab">تغيير كلمة المرور</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold px-3" id="permissions-tab" data-bs-toggle="pill" data-bs-target="#permissionsContent" type="button" role="tab">الصلاحيات الممنوحة</button>
+                    </li>
+                </ul>
+                <hr>
+
+                <div class="tab-content" id="unifiedTabContent">
+                    
+                    <!-- 1. تبويب بيانات الحساب (الاسم، الشركة، تاريخ الانضمام) -->
+                    <div class="tab-pane fade show active" id="infoContent" role="tabpanel">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-semibold">اسم المستخدم:</label>
+                                <asp:TextBox ID="txtProfileUserName" runat="server" CssClass="form-control bg-light text-end" ReadOnly="true"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-semibold">الشركة التابع لها:</label>
+                                <asp:TextBox ID="txtProfileCompanyName" runat="server" CssClass="form-control bg-light text-end" ReadOnly="true" Text="غير مسجل"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-semibold">تاريخ الانضمام / التسجيل:</label>
+                                <asp:TextBox ID="txtProfileJoinDate" runat="server" CssClass="form-control bg-light text-end" ReadOnly="true" Text="--/--/----"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. تبويب تغيير كلمة المرور -->
+                    <div class="tab-pane fade" id="passwordContent" role="tabpanel">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label text-muted small fw-semibold">كلمة المرور الحالية:</label>
+                                <asp:TextBox ID="txtCurrentPass" runat="server" CssClass="form-control bg-light" TextMode="Password" autocomplete="new-password"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-semibold">كلمة المرور الجديدة:</label>
+                                <asp:TextBox ID="txtNewPass" runat="server" CssClass="form-control bg-light" TextMode="Password" autocomplete="new-password"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-semibold">تأكيد كلمة المرور:</label>
+                                <asp:TextBox ID="txtConfirmPass" runat="server" CssClass="form-control bg-light" TextMode="Password" autocomplete="new-password"></asp:TextBox>
+                            </div>
+                            <div class="col-md-12 text-center mt-3">
+                                <asp:Label ID="lblPassMessage" runat="server" CssClass="small fw-bold d-block mb-2"></asp:Label>
+                                <asp:Button ID="btnChangePassword" runat="server" Text="حفظ كلمة المرور الجديدة" CssClass="btn btn-primary btn-sm px-4 fw-bold rounded-3" OnClick="btnChangePassword_Click" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. تبويب الصلاحيات -->
+                    <div class="tab-pane fade" id="permissionsContent" role="tabpanel">
+                        <h6 class="fw-bold text-secondary mb-3">قائمة الصلاحيات المخصصة لحسابك:</h6>
+                        <div class="table-responsive" style="max-height: 250px; overflow-y: auto;">
+                            <asp:GridView ID="gvUserPermissions" runat="server" CssClass="table table-bordered table-sm text-center" AutoGenerateColumns="true" EmptyDataText="لا توجد صلاحيات مسجلة أو مخصصة." Width="100%">
+                            </asp:GridView>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div class="modal-footer bg-light border-0">
+                <button type="button" class="btn btn-secondary btn-sm px-4 rounded-3" data-bs-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- نافذة الإعدادات وتغيير كلمة المرور والصلاحيات (Settings Modal) -->
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        // Find all textboxes or search inputs across the page
+        var searchInputs = document.querySelectorAll('input[type="text"], input[type="search"], .search__input');
+
+        searchInputs.forEach(function (input) {
+            // Force disable autocomplete via JS attribute injection
+            input.setAttribute('autocomplete', 'off');
+            input.setAttribute('readonly', 'true'); // Temporarily removes focus read state
+
+            // Allow typing by removing readonly on focus
+            input.addEventListener('focus', function () {
+                this.removeAttribute('readonly');
+            });
+        });
+    });
+</script>
+ </form>
+</body>
+</html>
